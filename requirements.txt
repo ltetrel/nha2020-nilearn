@@ -1,8 +1,0 @@
-ghp-import
-jupyter-book
-jupytext
-numpy
-pandas
-matplotlib
-sklearn
-nilearn
