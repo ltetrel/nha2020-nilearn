@@ -47,8 +47,8 @@ import matplotlib.pyplot as plt
 from nilearn import (datasets, input_data, plotting)
 from nilearn.connectome import ConnectivityMeasure
 
-development_dataset = datasets.fetch_development_fmri(n_subjects=30)
-msdl_atlas = datasets.fetch_atlas_msdl()
+development_dataset = datasets.fetch_development_fmri(data_dir="../data/nilearn_data", n_subjects=30)
+msdl_atlas = datasets.fetch_atlas_msdl(data_dir="../data/nilearn_data")
 
 masker = input_data.NiftiMapsMasker(
     msdl_atlas.maps, resampling_target="data",
