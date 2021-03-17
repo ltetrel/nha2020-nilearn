@@ -1,8 +1,6 @@
 ghp-import
 jupyter-book
 jupytext
-numpy
 pandas
 matplotlib
-sklearn
-nilearn
+nilearn==0.6.2

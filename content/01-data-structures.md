@@ -82,7 +82,7 @@ Let's download the first 30 participants.
 :tags: [hide-output]
 from nilearn import datasets
 
-development_dataset = datasets.fetch_development_fmri(data_dir="../data/nilearn_data")
+development_dataset = datasets.fetch_development_fmri(data_dir="../data/nilearn_data", n_subjects=30)
 ```
 
 Now, this `development_dataset` object has several attributes which provide access to the relevant information.
