@@ -82,7 +82,7 @@ Let's download the first 30 participants.
 :tags: [hide-output]
 from nilearn import datasets
 
-development_dataset = datasets.fetch_development_fmri(data_dir="../data/nilearn_data")
+development_dataset = datasets.fetch_development_fmri(data_dir="../data/nilearn_data/development_fmri")
 ```
 
 Now, this `development_dataset` object has several attributes which provide access to the relevant information.
@@ -164,7 +164,7 @@ which defines a set of _probabilistic_ ROIs across the brain.
 ```{code-cell} python3
 import numpy as np
 
-msdl_atlas = datasets.fetch_atlas_msdl(data_dir="../data/nilearn_data")
+msdl_atlas = datasets.fetch_atlas_msdl(data_dir="../data/nilearn_data/atlas_msdl")
 
 msdl_coords = msdl_atlas.region_coords
 n_regions = len(msdl_coords)
