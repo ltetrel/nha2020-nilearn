@@ -1,5 +1,23 @@
 #!/bin/bash
 
+#### python code
+#book_src_path = os.path.join(".", "content")
+#book_build_dir = os.path.join(book_src_path, "_build")
+#book_dst_path = f"/srv/jupyterhub/data/book-artifacts/{ref}"
+## check if repo is a jupyter book, and then check if book artifacts already exists
+#exists = os.path.isfile(os.path.join(book_src_path, "_config.yml"))
+#exists = (exists and not os.path.isdir(book_dst_path))
+#  if exists:
+#    cmd = ["jupyter-book", "build", book_src_path]
+#    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#    print(process.stdout.read().decode("utf-8"))
+#
+#    print(f"Moving {book_build_dir}/* into {book_dst_path}")
+#    os.makedirs(book_dst_path)
+#    dirnames = os.listdir(book_build_dir)
+#      for dirname in dirnames:
+#        shutil.move( os.path.join(book_build_dir, dirname), book_dst_path )
+
 BOOK_CONFIG="/home/jovyan/content/_config.yml"
 if test -f $BOOK_CONFIG; then
     echo "This repository contains a Jupyter Book configuration."
