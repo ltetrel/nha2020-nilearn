@@ -1,29 +1,20 @@
 #!/bin/bash
 
-#### python code
-#book_src_path = os.path.join(".", "content")
-#book_build_dir = os.path.join(book_src_path, "_build")
-#book_dst_path = f"/srv/jupyterhub/data/book-artifacts/{ref}"
-## check if repo is a jupyter book, and then check if book artifacts already exists
-#exists = os.path.isfile(os.path.join(book_src_path, "_config.yml"))
-#exists = (exists and not os.path.isdir(book_dst_path))
-#  if exists:
-#    cmd = ["jupyter-book", "build", book_src_path]
-#    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#    print(process.stdout.read().decode("utf-8"))
-#
-#    print(f"Moving {book_build_dir}/* into {book_dst_path}")
-#    os.makedirs(book_dst_path)
-#    dirnames = os.listdir(book_build_dir)
-#      for dirname in dirnames:
-#        shutil.move( os.path.join(book_build_dir, dirname), book_dst_path )
-
-BOOK_CONFIG="/home/jovyan/content/_config.yml"
+BOOK_PATH="/home/jovyan/content"
+BOOK_CONFIG="${BOOK_PATH}/_config.yml"
 if test -f $BOOK_CONFIG; then
     echo "This repository contains a Jupyter Book configuration."
     REF=$(git rev-parse HEAD)
     BOOK_INPUT="/home/jovyan/data/book-artifacts/$REF"
-    ln -s $BOOK_INPUT /home/jovyan/content/_build
+
+    if [ -d "${BOOK_INPUT}" ]; then
+        echo "Loading previous Jupyter Book from commit $REF."
+    else
+        echo "Building Jupyter Book from commit $REF."
+        jupyter-book build ${BOOK_PATH}
+        mv ${BOOK_PATH}/_build/* ${BOOK_INPUT}
+    fi
+    ln -s ${BOOK_INPUT} /home/jovyan/content/_build
 fi
 
 exec "$@"
