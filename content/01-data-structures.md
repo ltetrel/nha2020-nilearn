@@ -18,7 +18,7 @@ import warnings
 warnings.filterwarnings("ignore")
 ```
 
-In this (new) tutorial,
+In this tutorial,
 we'll see how the Python library `nilearn` allows us to easily perform machine learning analyses with neuroimaging data,
 specifically MRI and fMRI.
 
