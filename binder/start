@@ -5,12 +5,13 @@ BOOK_CONFIG="${BOOK_PATH}/_config.yml"
 if test -f $BOOK_CONFIG; then
     echo "This repository contains a Jupyter Book configuration."
     REF=$(git rev-parse HEAD)
-    BOOK_INPUT="/home/jovyan/data/book-artifacts/$REF"
+    BOOK_INPUT="/home/jovyan/book-artifacts/$REF"
 
     if [ -d "${BOOK_INPUT}" ]; then
         echo "Loading previous Jupyter Book from commit $REF."
     else
         echo "Building Jupyter Book from commit $REF."
+        mkdir ${BOOK_INPUT}
         jupyter-book build ${BOOK_PATH}
         mv ${BOOK_PATH}/_build/* ${BOOK_INPUT}
     fi
