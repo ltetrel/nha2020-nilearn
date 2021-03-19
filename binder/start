@@ -11,12 +11,12 @@ if test -f $BOOK_CONFIG; then
         echo "Loading previous Jupyter Book from commit $REF."
     else
         echo "Building Jupyter Book from commit $REF."
-        jupyter-book build ${BOOK_PATH}
-        mkdir ${BOOK_INPUT}
-        mv ${BOOK_PATH}/_build/* ${BOOK_INPUT}
-        rm -r ${BOOK_PATH}/_build
+        #jupyter-book build ${BOOK_PATH}
+        #mkdir ${BOOK_INPUT}
+        #mv ${BOOK_PATH}/_build/* ${BOOK_INPUT}
+        #rm -r ${BOOK_PATH}/_build
     fi
-    ln -s ${BOOK_INPUT} /home/jovyan/content/_build
+    #ln -s ${BOOK_INPUT} /home/jovyan/content/_build
 fi
 
 exec "$@"
