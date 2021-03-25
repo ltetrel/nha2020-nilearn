@@ -8,7 +8,7 @@ if test -f $BOOK_CONFIG; then
     for REF in $HASH_LIST; do
 	BOOK_INPUT="/home/jovyan/data/book-artifacts/$REF"
         # if the folder exists on the server, we can mount it
-	if [ -d ${BOOK_INPUT}]; then
+	if test -d ${BOOK_INPUT}; then
 	    ln -s ${BOOK_INPUT} /home/jovyan/content/_build || break
 	fi
     done
