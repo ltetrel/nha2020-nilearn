@@ -6,7 +6,7 @@ if test -f $BOOK_CONFIG; then
     HASH_LIST=$(git log --format=format:"%H")
     # loop through all commits hashes, to get the latest one that exist (was built)
     for REF in $HASH_LIST; do
-	BOOK_INPUT="/home/jovyan/data/book-artifacts/$REF"
+	BOOK_INPUT="/home/jovyan/data/book-artifacts/*/*/*/$REF"
         # if the folder exists on the server, we can mount it
 	if test -d ${BOOK_INPUT}; then
 	    ln -s ${BOOK_INPUT} /home/jovyan/content/_build || break
