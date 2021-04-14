@@ -2,5 +2,4 @@ ghp-import
 jupyter-book
 jupytext
 pandas
-matplotlib
 nilearn==0.6.2
