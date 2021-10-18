@@ -1,4 +1,2 @@
-format: jb-article
-root: 01-data-structures
-sections:
+- file: 01-data-structures
 - file: 02-classification-example
