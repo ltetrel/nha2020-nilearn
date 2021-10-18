@@ -1,5 +1,5 @@
 ghp-import
-jupyter-book
+jupyter-book==0.11.2
 jupytext
 pandas
 matplotlib==3.4.1
